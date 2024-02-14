@@ -14,9 +14,15 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: ElevatedButton(onPressed: (){
-              NotificationService().showNotification(title: 'Sample Notification', body: 'It works fine');
-            }, child: const Text('Show Notification')),
+            child: ElevatedButton(
+                onPressed: () {
+                  debugPrint('Button is Pressed');
+                  NotificationService().showNotification(
+                    title: 'Sample Notification',
+                    body: 'It works fine',
+                  );
+                },
+                child: const Text('Show Notification')),
           )
         ],
       ),
