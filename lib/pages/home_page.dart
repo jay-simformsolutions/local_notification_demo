@@ -11,10 +11,13 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Notification Demo'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: (){
-            NotificationService().showNotification(title: 'Sample Notification', body: 'It works fine');
-          }, child: const Text('Show Notification'))
+          Center(
+            child: ElevatedButton(onPressed: (){
+              NotificationService().showNotification(title: 'Sample Notification', body: 'It works fine');
+            }, child: const Text('Show Notification')),
+          )
         ],
       ),
     );
