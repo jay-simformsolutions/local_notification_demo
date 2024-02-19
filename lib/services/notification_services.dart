@@ -59,19 +59,16 @@ class NotificationService {
     );
   }
 
-  Future scheduleNotification({
-    int id = 0,
-    String? title,
-    String? body,
-  }) async {
-    return notificationsPlugin.zonedSchedule(
-      id,
-      title,
-      body,
-      tz.TZDateTime.now(tz.local).add(const Duration(seconds: 3)),
-      await notificationDetails(),
-      uiLocalNotificationDateInterpretation:
-          UILocalNotificationDateInterpretation.absoluteTime,
-    );
+  void scheduleNotification() async {
+    final notificationDetail = await notificationDetails();
+    await notificationsPlugin.zonedSchedule(
+        0,
+        'This is from schedule notification',
+        'Hi, Schedule Notification',
+        tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
+        // notificationDetails,
+        notificationDetail,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.wallClockTime);
   }
 }

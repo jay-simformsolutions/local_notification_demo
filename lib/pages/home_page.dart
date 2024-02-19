@@ -41,10 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
               itemBuilder: (context, index) {
               return GestureDetector(
                 onTap: () {
-                  NotificationService.notificationService.scheduleNotification(
-                    title: employeeList[index].name,
-                    body: employeeList[index].website,
-                  );
+                  NotificationService.notificationService.scheduleNotification();
                   /*NotificationService.notificationService.showNotification(
                     title: employeeList[index].name,
                     body: employeeList[index].website,
@@ -71,19 +68,26 @@ class _MyHomePageState extends State<MyHomePage> {
             }, separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(height: 16,);
             },),
-          )
-          /*Center(
+          ),
+         /* Center(
+            child: ElevatedButton(
+                onPressed: () {
+                  debugPrint('Simple Notification');
+                  NotificationService.notificationService.showNotification(
+                    body: 'This is Simple Notification',
+                    title: 'Simple Notification'
+                  );
+                },
+                child: const Text('Simple Notification')),
+          ),
+          Center(
             child: ElevatedButton(
                 onPressed: () {
                   debugPrint('Button is Pressed');
-                  DataFetch().getEmployeeData();
-                  NotificationService().showNotification(
-                    title: 'Sample Notification',
-                    body: 'It works fine',
-                  );
+                  NotificationService.notificationService.scheduleNotification();
                 },
                 child: const Text('Show Notification')),
-          )*/
+          ),*/
         ],
       ),
     );
